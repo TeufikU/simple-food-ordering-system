@@ -1,0 +1,22 @@
+{
+  "name": "simple-food-ordering-system",
+  "version": "1.0.0",
+  "description": "WEB APP for simple food ordering system",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "3.0.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "hoek": "^6.1.2",
+    "jsonwebtoken": "^7.4.2",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.15",
+    "nodemon": "^1.18.3"
+  }
+}
