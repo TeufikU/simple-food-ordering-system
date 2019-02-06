@@ -1,58 +1,60 @@
 import React, { Component } from 'react'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import { Link, withRouter} from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
-import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import ReactDOM from 'react-dom';
+import { getRestaurants } from './Services'
+
 class RestaurantsList extends Component {
 
+    constructor() {
+        super()
+        this.state = []
 
+    }
+
+    //If component is mounted in DOM, then create an object with restoraunts data from database
+    componentDidMount () {
+        const restaurant = {
+             name: this.state.name,
+             location: this.state.location,
+             workinghours:''
+        }
+       getRestaurants(restaurant).then(res => {
+             if (res) {
+                this.state=res;
+                 console.log(this.state)
+                }
+         })
+            //this.setState(this.state)
+    }
+
+    //Creating DOM elements with restaurants data from database
     render () {
         return (
-
-<div class="items">
-    <Grid container spacing={12}>
-        <Grid item xs={10}>
-              Čaršijska Česma
+            <Grid container spacing={12}>
+            <Grid item xs={10}>
+              {this.state.name}
             </Grid>
             <Grid item xs={2}>
-                <Fab color="primary"size="small" flex-end onClick={ this.toggleDiv }>
+                <Fab color="primary"size="small" flex-end onClick={ this.toggleDiv } onClick={this.creatediv}>
                     <Icon>add_icon</Icon>
                 </Fab>
-        </Grid>
-        <Grid item xs={10}>
-              Limenka
+            </Grid>    
             </Grid>
-            <Grid item xs={2}>
-                <Fab color="primary"size="small" flex-end>
-                    <Icon>add_icon</Icon>
-                </Fab>
-        </Grid>
-        <Grid item xs={10}>
-              Sarajka
-            </Grid>
-            <Grid item xs={2}>
-                <Fab color="primary"size="small" flex-end>
-                    <Icon>add_icon</Icon>
-                </Fab>
-        </Grid>
-        <Grid item xs={10}>
-              Mama Mia
-            </Grid>
-            <Grid item xs={2}>
-                <Fab color="primary"size="small" flex-end>
-                    <Icon>add_icon</Icon>
-                </Fab>
-        </Grid>
-            
-    </Grid>
-    </div>
         )
     }
 
+    //This function is showing a h3 tag for now, but in new update of this code there will be a panels for making food orderings
+    creatediv(){
+        const element = (
+            <div>
+              <h3>Here We'll have ability to order some food soon.</h3>
+            </div>
+          );
+          ReactDOM.render(element, document.getElementById('panels'));
+        }
 }
 
 

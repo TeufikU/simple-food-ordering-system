@@ -4,13 +4,16 @@
   "description": "WEB APP for simple food ordering system",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "server": "nodemon server.js",
+    "frontend": "npm start --prefix frontend",
+    "all": "concurrently \"npm run server\" \"npm run frontend\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "3.0.0",
     "body-parser": "^1.17.2",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "hoek": "^6.1.2",

@@ -4,20 +4,29 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, withRouter} from 'react-router-dom'
 
-const LendingHome = props => <Link to="/" {...props} />
-
-
 class Navbar extends Component {
+    //Function used for logging out users from Dashboard. It removes user data from local storage
+    logOut (e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }
+    
     render () {
         return (
-           
-     
             <AppBar position="static" color="default">
             <Toolbar>
-            <Link to="/dashboard" ><img src={require('../assets/imgs/logo.png')} alt="logo" className="brand-logo" width="70" /></Link>
-            <div class="DashboardMenuRight">
-            <Button color="primary">Add Restaurant</Button>
-            <Button component={LendingHome} color="primary">Logout</Button>
+            <Link to="/dashboard" >
+                <img 
+                    src={require('../assets/imgs/logo.png')} 
+                    alt="logo" 
+                    className="brand-logo" 
+                    width="70" 
+                    />
+            </Link>
+            <div className="DashboardMenuRight">
+            <Link to="/addnewrestaurant" ><Button color="primary">Add Restaurant</Button></Link>
+            <Button onClick={this.logOut.bind(this)} color="primary">Logout</Button>
             </div>
             </Toolbar>
             </AppBar> 

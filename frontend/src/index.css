@@ -1,87 +1,114 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /**
+  In this CSS file is stored every style for some HTML elements thas has been used in this project
+  **/
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
+  .landing-container{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:15%;
+    text-align: center;
+    background:#ededed;
+    box-shadow: 2px 2px 7px 1px #888888;
+    padding:5%;
+  }
 
-.landing-container{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width:15%;
-  text-align: center;
-  background:#ededed;
-  box-shadow: 2px 2px 7px 1px #888888;
-  padding:5%;
-}
+  .landing-logo{
+    display:block;
+    width:250px;
+    height:100px;
+    background: url('./assets/imgs/logo.png') no-repeat center center fixed;
+    margin:0 auto;
+  }
 
-.landing-logo{
-  display:block;
-  width:250px;
-  height:100px;
-  background: url('./assets/imgs/logo.png') no-repeat center center fixed;
-  margin:0 auto;
-}
+  div.landing-container ul{
+    list-style:none;
+    padding:0;
+    margin:auto;
+    width:200px;
+  }
 
-div.landing-container ul{
-  list-style:none;
-  padding:0;
-  margin:auto;
-  width:200px;
-}
+  div.landing-container form{
+    list-style:none;
+    padding:0;
+    margin:auto;
+    width:300px;
+  }
 
-div.landing-container form{
-  list-style:none;
-  padding:0;
-  margin:auto;
-  width:300px;
-}
+  div.landing-container ul li{
+    margin-bottom:5%;
+  }
 
-div.landing-container ul li{
-  margin-bottom:5%;
-}
+  div.DashboardMenuRight{
+    position:absolute;
+    right:12px;
+  }  
 
-div.DashboardMenuRight{
-  position:absolute;
-  right:12px;
-}  
+  .sidebar{
+    width:20%;
+    float:left;
+    padding:10px;
+  }
 
-.sidebar{
-  width:20%;
-  float:left;
-  padding:10px;
-}
-
-div.sidebar ul{
-  list-style:none;
-  padding-left:10px;
-}
-
-div.sidebar ul li{
-  padding:10px;
-  border-bottom:1px solid #e0e0e0;
-}
-
-div.sidebar ul li:hover{
-  background:lightgrey;
-}
-
-.textAlignCenter{
-  text-align:center;
-}
-
-html body div#root div.App div div.sidebar div.items div{
-  display:flex;
-    justify-content: left;
-    align-items: center;
-    height:50px;
+  div.sidebar ul{
+    list-style:none;
     padding-left:10px;
-}
+  }
+
+  div.sidebar ul li{
+    padding:10px;
+    border-bottom:1px solid #e0e0e0;
+  }
+
+  div.sidebar ul li:hover{
+    background:lightgrey;
+  }
+
+  .textAlignCenter{
+    text-align:center;
+  }
+
+  html body div#root div.App div div.sidebar div.items div{
+    display:flex;
+      justify-content: left;
+      align-items: center;
+      height:50px;
+      padding-left:10px;
+  }
+
+  .globalMessage{
+    margin:0 auto;
+    display:block;
+    text-align: center;
+  }
+
+  .errorMessage{
+    color:red;
+  }
+
+  div.Container >div{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:30%;
+    text-align: center;
+    background:#ededed;
+    box-shadow: 2px 2px 7px 1px #888888;
+    padding:5%;
+  }
+
