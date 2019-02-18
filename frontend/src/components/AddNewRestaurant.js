@@ -22,10 +22,9 @@
             this.setState({ [e.target.name]: e.target.value })
         }
 
-        //Adding new restaurant name on button click for sumbit
+        /*Adding new restaurant name on button click for sumbit*/
         onSubmit (e) {
             e.preventDefault()
-
             if(this.state.name!=='' && this.state.location!=='' && this.state.workinghours!==''){
                     const restaurant = {
                         name: this.state.name,
@@ -42,7 +41,7 @@
                 this.setState(this.state)
         }
 
-        //Creating form elements in dashboard DOM
+        /*Creating form elements in dashboard DOM*/
         render () {
             return (
                 <div className="Container">

@@ -16,15 +16,15 @@ class Login extends Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    //Function for changin input values
+    /*Function for changin input values*/
     onChange (e) {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    //Function for sumbitting data from inputs, and to push user to Dashboard component
+    /*Function for sumbitting data from inputs, and to push user to Dashboard component*/
     onSubmit (e) {
         e.preventDefault()
-        if(this.state.email=='' || this.state.password==''){
+        if(this.state.email==='' || this.state.password===''){
             this.state.error="You need to fill out all the fields."}
             else{
                 const user = {
@@ -73,7 +73,7 @@ class Login extends Component {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    fullWidt
+                    fullWidth
                 >Login</Button>
             </form>
             <div className="errorMessage">{this.state.error}</div>

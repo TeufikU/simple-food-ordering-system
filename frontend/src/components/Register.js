@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import { register } from './Services'
 
 class Register extends Component {
-    //Creating array of data and bind changes on created events
+
+    /*Creating array of data and bind changes on created events*/
     constructor() {
         super()
         this.state = {
@@ -18,18 +19,18 @@ class Register extends Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    //This function is used for changing the values of every input
+    /*This function is used for changing the values of every input*/
     onChange (e) {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    //Function for determining if submit button was clicked so we can save our data from input values to our database
+    /*Function for determining if submit button was clicked so we can save our data from input values to our database*/
     onSubmit (e) {
         e.preventDefault()
         //If input values are not zero
         if(this.state.email!=='' && this.state.fullname!=='' && this.state.password!==''){
             const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-            //Checking if user type in a true E-mail adress
+            /*Checking if user type in a right E-mail adress*/
             if(this.state.email.match(emailformat)){
                 const user = {
                     fullname: this.state.fullname,

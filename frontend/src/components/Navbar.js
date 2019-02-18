@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 import { Link, withRouter} from 'react-router-dom'
 
 class Navbar extends Component {
-    //Function used for logging out users from Dashboard. It removes user data from local storage
+    
+    /*Function used for logging out users from Dashboard. It removes user data from local storage*/
     logOut (e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')

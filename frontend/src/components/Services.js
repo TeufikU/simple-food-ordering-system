@@ -1,6 +1,6 @@
     import axios from 'axios';
 
-    //Arrow function to be used for making user registration
+    /*Arrow function to be used for making user registration*/
     export const register = newUser => {
         return axios
             .post('users/register', {
@@ -13,7 +13,7 @@
             })
     }
 
-    //Function that is using for logging in user to dashboard and with using token for saving user data into local storage, so we know that specific user is logged in
+    /*Function that is using for logging in user to dashboard and with using token for saving user data into local storage, so we know that specific user is logged in*/
     export const login = user => {
         return axios
             .post('users/login', {
@@ -29,7 +29,7 @@
             })
     }
 
-    //Function for inserting new restaurants in DataBase
+    /*Function for inserting new restaurants in DataBase*/
     export const addRestaurant = newRestaurant => {
         return axios
             .post('restaurants/list', {
@@ -43,7 +43,7 @@
     }
 
 
-    //Getting the restaurants list from DataBase
+    /*Getting the restaurants list from DataBase*/
     export const getRestaurants = restaurant => {
         return axios
             .get('restaurants/list', {
@@ -56,6 +56,20 @@
             })
             .catch(err => {
                 console.log(err)
+            })
+    }
+
+    /*Saving order food data to MongoDb */
+    export const orderFood = newOrder => {
+        return axios
+            .post('restaurants/orders', {
+                user: newOrder.email,
+                restaurantName: newOrder.restaurantName,
+                foodName: newOrder.foodName,
+                orderDate: newOrder.orderDate,
+            })
+            .then(res => {
+                console.log('Successfully added new order for specific restaurant!')
             })
     }
 

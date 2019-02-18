@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import AddNewRestaurant from './components/AddNewRestaurant'
+
 class App extends Component {
   render () {
     return (

@@ -11,6 +11,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /*
+    Global styles
+  */
+  
+  .textAlignCenter{
+    text-align:center;
+  }
+
+
+  /*
+    Style for LandingHome component
+  */
   .landing-container{
     margin: 0;
     position: absolute;
@@ -51,6 +63,10 @@
     margin-bottom:5%;
   }
 
+  
+  /*
+    Style for Dashboard component
+  */
   div.DashboardMenuRight{
     position:absolute;
     right:12px;
@@ -62,30 +78,12 @@
     padding:10px;
   }
 
-  div.sidebar ul{
-    list-style:none;
-    padding-left:10px;
-  }
-
-  div.sidebar ul li{
-    padding:10px;
-    border-bottom:1px solid #e0e0e0;
-  }
-
-  div.sidebar ul li:hover{
-    background:lightgrey;
-  }
-
-  .textAlignCenter{
-    text-align:center;
-  }
-
-  html body div#root div.App div div.sidebar div.items div{
+  div.sidebar div div{
     display:flex;
-      justify-content: left;
-      align-items: center;
-      height:50px;
-      padding-left:10px;
+    justify-content: left;
+    align-items: center;
+    height:50px;
+    padding-left:10px;
   }
 
   .globalMessage{
@@ -105,10 +103,39 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width:30%;
+    width:15%;
     text-align: center;
     background:#ededed;
     box-shadow: 2px 2px 7px 1px #888888;
     padding:5%;
   }
 
+  .bold{
+    font-weight: bold;
+  }
+
+  div div#panels{
+    width:70%!important;
+    height:100%!important;
+    background:azure;
+    float:right;
+    z-index:-1;
+    margin:2% 3% 0% 3%;
+  }
+
+
+  div.panelRestaurantItem{
+    width:35%;
+    float:left;
+    display:block;
+    margin:1%;
+    background:#ededed;
+    box-shadow: 2px 2px 7px 1px #888888;
+    padding:2%;
+    text-align: center;
+  }
+
+  .restaurantPanelClose{
+    float:right;
+    width:20px;
+  }

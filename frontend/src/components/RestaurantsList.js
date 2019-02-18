@@ -3,58 +3,39 @@ import { withRouter} from 'react-router-dom'
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import ReactDOM from 'react-dom';
-import { getRestaurants } from './Services'
+import Button from '@material-ui/core/Button';
 
 class RestaurantsList extends Component {
 
     constructor() {
         super()
-        this.state = []
-
     }
 
-    //If component is mounted in DOM, then create an object with restoraunts data from database
-    componentDidMount () {
-        const restaurant = {
-             name: this.state.name,
-             location: this.state.location,
-             workinghours:''
-        }
-       getRestaurants(restaurant).then(res => {
-             if (res) {
-                this.state=res;
-                 console.log(this.state)
-                }
-         })
-            //this.setState(this.state)
-    }
-
-    //Creating DOM elements with restaurants data from database
+    /*Rendering out a restaurants list from data base on the left side of the Dahboard*/
     render () {
         return (
-            <Grid container spacing={12}>
-            <Grid item xs={10}>
-              {this.state.name}
-            </Grid>
-            <Grid item xs={2}>
-                <Fab color="primary"size="small" flex-end onClick={ this.toggleDiv } onClick={this.creatediv}>
-                    <Icon>add_icon</Icon>
-                </Fab>
-            </Grid>    
-            </Grid>
+            
+            <div>
+                  {
+                    this.props.restaurants.map((number) =>
+                    <Grid container spacing={12} key={number._id}>
+                    <Grid item xs={10}>
+                        {number.name}
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Fab color="primary"size="small" flex-end onClick={ this.props.createFoodOrder.bind(null, number) }>
+                      <Icon>add_icon</Icon>
+                    </Fab>
+                    </Grid> 
+                    </Grid>  
+                    )
+                  }
+            </div>
         )
     }
 
-    //This function is showing a h3 tag for now, but in new update of this code there will be a panels for making food orderings
-    creatediv(){
-        const element = (
-            <div>
-              <h3>Here We'll have ability to order some food soon.</h3>
-            </div>
-          );
-          ReactDOM.render(element, document.getElementById('panels'));
-        }
 }
 
 
