@@ -1,8 +1,6 @@
 const express = require("express")
 const restaurants = express.Router()
 const cors = require("cors")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
 
 const Restaurant = require("../models/Restaurant")
 restaurants.use(cors())

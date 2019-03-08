@@ -22,9 +22,12 @@
 
   var Users = require('./routes/Users')
   var Restaurants = require('./routes/Restaurants')
+  var Orders = require('./routes/Orders')
 
   app.use('/users', Users)
   app.use('/restaurants', Restaurants)
+  app.use('/orders', Orders)
+  
 
   app.listen(port, () => {
       console.log("Server is running on port: " + port)

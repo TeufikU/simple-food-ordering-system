@@ -2,7 +2,7 @@
     const Schema = mongoose.Schema
 
     //Creating schema for restaurants, so We can import new restaurants in database with written key names as shown below
-    const UserSchema = new Schema({
+    const RestaurantSchema = new Schema({
         name: {
             type: String,
             required: true
@@ -12,9 +12,9 @@
             required: true
         },
         workinghours: {
-            type: Number,
+            type: String,
             required: true
         }
     })
 
-    module.exports = Restaurant = mongoose.model('restaurants', UserSchema)
+    module.exports = Restaurant = mongoose.model('restaurants', RestaurantSchema)

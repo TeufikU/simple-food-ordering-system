@@ -61,6 +61,7 @@
                         res.send(token)
                     } else {
                         res.json({ error: "User does not exist" })
+                        console.log("Passwords is incorrect")
                     }
                 } else {
                     res.json({ error: "User does not exist" })

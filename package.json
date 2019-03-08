@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon server.js",
     "frontend": "npm start --prefix frontend",
-    "all": "concurrently mongod mongo \"npm run server\" \"npm run frontend\""
+    "mongodb": "mongod mongo",
+    "all": "concurrently \"mongod\" \"npm run server\" \"npm run frontend\""
   },
   "author": "",
   "license": "ISC",
