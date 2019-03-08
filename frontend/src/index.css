@@ -20,71 +20,17 @@
   }
 
 
-  /*
-    Style for LandingHome component
-  */
-  .landing-container{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width:15%;
-    text-align: center;
-    background:#ededed;
-    box-shadow: 2px 2px 7px 1px #888888;
-    padding:5%;
-  }
-
-  .landing-logo{
-    display:block;
-    width:250px;
-    height:100px;
-    background: url('./assets/imgs/logo.png') no-repeat center center fixed;
-    margin:0 auto;
-  }
-
-  div.landing-container ul{
-    list-style:none;
-    padding:0;
-    margin:auto;
-    width:200px;
-  }
-
-  div.landing-container form{
-    list-style:none;
-    padding:0;
-    margin:auto;
-    width:300px;
-  }
-
-  div.landing-container ul li{
-    margin-bottom:5%;
-  }
-
+  
+  html body div#root div.App div.landing-container
   
   /*
     Style for Dashboard component
   */
-  div.DashboardMenuRight{
-    position:absolute;
-    right:12px;
-  }  
+   
 
-  .sidebar{
-    width:20%;
-    float:left;
-    padding:10px;
-  }
+ 
 
-  div.sidebar div div{
-    display:flex;
-    justify-content: left;
-    align-items: center;
-    height:50px;
-    padding-left:10px;
-  }
+  
 
   .globalMessage{
     margin:0 auto;
@@ -96,46 +42,10 @@
     color:red;
   }
 
-  div.Container >div{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width:15%;
-    text-align: center;
-    background:#ededed;
-    box-shadow: 2px 2px 7px 1px #888888;
-    padding:5%;
-  }
 
   .bold{
     font-weight: bold;
   }
 
-  div div#panels{
-    width:70%!important;
-    height:100%!important;
-    background:azure;
-    float:right;
-    z-index:-1;
-    margin:2% 3% 0% 3%;
-  }
+  
 
-
-  div.panelRestaurantItem{
-    width:35%;
-    float:left;
-    display:block;
-    margin:1%;
-    background:#ededed;
-    box-shadow: 2px 2px 7px 1px #888888;
-    padding:2%;
-    text-align: center;
-  }
-
-  .restaurantPanelClose{
-    float:right;
-    width:20px;
-  }

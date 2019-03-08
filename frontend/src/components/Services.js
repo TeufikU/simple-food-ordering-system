@@ -1,4 +1,5 @@
     import axios from 'axios';
+ 
 
     /*Arrow function to be used for making user registration*/
     export const register = newUser => {
@@ -49,7 +50,7 @@
             .get('restaurants/list', {
                 name: restaurant.name,
                 location: restaurant.location,
-                workinghours: restaurant.workinghours
+                workinghours: restaurant.workinghours,
             })
             .then(res => {
                 return res.data
@@ -62,15 +63,35 @@
     /*Saving order food data to MongoDb */
     export const orderFood = newOrder => {
         return axios
-            .post('restaurants/orders', {
-                user: newOrder.email,
+            .post('/orders', {
+                user: newOrder.user,
                 restaurantName: newOrder.restaurantName,
                 foodName: newOrder.foodName,
                 orderDate: newOrder.orderDate,
             })
             .then(res => {
                 console.log('Successfully added new order for specific restaurant!')
+                return res
             })
     }
 
-    
+    export function getOrderList (date) {
+        return axios.get('orders/'+date)
+        .then(function (response) {
+          return response.data
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    export function removeOrder (orderID) {
+        return axios.delete('orders/delete/'+orderID)
+        .then(function (response) {
+          return response.data
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+

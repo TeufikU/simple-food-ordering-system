@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom'
-import { login } from './Services'
-
+import { login } from '../Services'
+import './Login.css'
 class Login extends Component {
     constructor() {
         super()
@@ -42,8 +42,8 @@ class Login extends Component {
 
     render () {
         return (
-            <div className="landing-container">
-             <Link to="/"><div className="landing-logo"></div></Link>
+            <div className="login-container">
+             <Link to="/"><div className="login-logo"></div></Link>
             <h2 padding-bottom="true">Login</h2>
             <form noValidate onSubmit={this.onSubmit}>
                 <TextField 

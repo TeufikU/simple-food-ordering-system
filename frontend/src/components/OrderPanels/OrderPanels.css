@@ -1,0 +1,46 @@
+/*
+    Style for OrderPanels component
+  */
+  div div#panels{
+    width:70%!important;
+    height:100%!important;
+    float:right;
+    z-index:-1;
+    margin:2% 3% 0% 3%;
+  }
+
+
+  div.panelRestaurantItem{
+    width:35%;
+    float:left;
+    display:block;
+    margin:1%;
+    background:#ededed;
+    box-shadow: 2px 2px 7px 1px #888888;
+    padding:2%;
+    text-align: center;
+  }
+
+  .restaurantPanelClose{
+    float:right;
+    width:20px;
+  }
+
+  .panelHeader{
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom:6%;
+  }
+
+  div.panelHeader > h2, h3, p{
+    margin:0;
+  }
+
+  .orders{
+    padding-bottom:10%;
+    text-align:left;
+  }
+
+div.orders h4{
+  margin:0;
+}

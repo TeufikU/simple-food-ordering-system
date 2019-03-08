@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, withRouter} from 'react-router-dom'
-
+import './Navbar.css'
 class Navbar extends Component {
     
     /*Function used for logging out users from Dashboard. It removes user data from local storage*/
@@ -19,7 +19,7 @@ class Navbar extends Component {
             <Toolbar>
             <Link to="/dashboard" >
                 <img 
-                    src={require('../assets/imgs/logo.png')} 
+                    src={require('../../assets/imgs/logo.png')} 
                     alt="logo" 
                     className="brand-logo" 
                     width="70" 

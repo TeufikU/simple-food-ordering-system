@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import LandingHome from './components/LandingHome';
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import AddNewRestaurant from './components/AddNewRestaurant'
+import LandingHome from './components/LandingHome/LandingHome';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Dashboard from './components/Dashboard/Dashboard';
+import AddNewRestaurant from './components/AddNewRestaurant/AddNewRestaurant'
 
 class App extends Component {
   render () {

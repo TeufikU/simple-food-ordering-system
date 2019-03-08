@@ -1,0 +1,39 @@
+.landinghome-container{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:15%;
+    text-align: center;
+    background:#ededed;
+    box-shadow: 2px 2px 7px 1px #888888;
+    padding:5%;
+  }
+
+  .landinghome-logo{
+    display:block;
+    width:250px;
+    height:100px;
+    background: url('../../assets/imgs/logo.png') no-repeat center center fixed;
+    margin:0 auto;
+  }
+
+div.landinghome-container ul{
+    list-style:none;
+    padding:0;
+    margin:auto;
+    width:200px;
+  }
+
+  div.landinghome-container form{
+    list-style:none;
+    padding:0;
+    margin:auto;
+    width:300px;
+  }
+
+  div.landinghome-container ul li{
+    margin-bottom:5%;
+  }

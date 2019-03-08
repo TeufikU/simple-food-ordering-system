@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom'
-import { register } from './Services'
-
+import { register } from '../Services'
+import './Register.css'
 class Register extends Component {
 
     /*Creating array of data and bind changes on created events*/
@@ -51,8 +51,8 @@ class Register extends Component {
 
 render () {
     return (
-    <div className="landing-container">
-        <Link to="/"><div className="landing-logo"></div></Link>
+    <div className="register-container">
+        <Link to="/"><div className="register-logo"></div></Link>
         <h2 padding-bottom="true">Registration</h2>
             <form noValidate onSubmit={this.onSubmit}>
             <TextField

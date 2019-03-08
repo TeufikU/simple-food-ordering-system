@@ -1,0 +1,13 @@
+ .sidebar{
+    width:20%;
+    float:left;
+    padding:10px;
+ }
+
+ div.sidebar div div{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    height:50px;
+    padding-left:10px;
+ }
