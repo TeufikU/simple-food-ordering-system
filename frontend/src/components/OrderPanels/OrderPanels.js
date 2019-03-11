@@ -4,9 +4,9 @@ import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
 import { orderFood } from '../Services';
-import { removeOrder } from '../Services';
-import { todaysDate, isRestaurantOpenedAndPopulated } from '../../Helpers/Functions';
+import { todaysDate, removePanel, deleteOrder } from '../../Helpers/Functions';
 import './OrderPanels.css'
+
 class OrderPanels extends Component {
     constructor(props) {
         super()
@@ -26,54 +26,34 @@ class OrderPanels extends Component {
 
     }
 
-
     /*Function for changin input values*/
     onChange (e) {
         this.setState({ [e.target.name]: e.target.value })
     }
 
     /*Function for sumbitting data from input and saving It to the MongoDb as a food name order with other required data*/
-    onSubmit (e,number) {
+    onSubmit (e,newOrder) {
         e.preventDefault();
         const foodOrder={
             user: this.props.user.fullname,
-            restaurantName: number.name,
-            foodName: this.state["rest"+number._id],
+            restaurantName: newOrder.name,
+            foodName: this.state["rest"+newOrder._id],
             orderDate: todaysDate(),
         }
-        if(!this.state["rest"+number._id]==''){
+        if(!this.state["rest"+newOrder._id]==''){
             orderFood(foodOrder).then(res=>{
             this.props.ordersList.push({...foodOrder,_id:res.data._id})  
             this.forceUpdate()
             })  
-    }
-    
-    console.log(this.props.ordersList)
-    e.target.reset()
-    }
-
-    /**Function for removing restaurant panel for ordering food from the right side of the dashboard*/
-    removePanel(restaurantPanel){
-        restaurantPanel.isOpened=false
-        this.state.restaurants.sort()
-        this.forceUpdate();
-    }
-
-    deleteOrder(orderID){
-        console.log(orderID)
-        removeOrder(orderID)
-        const idToRemove=this.props.ordersList.filter(({_id: ID}) => ID === orderID);
-        this.props.ordersList.splice(this.props.ordersList.indexOf(idToRemove),1)
-        console.log(idToRemove)
-        //console.log(this.props.ordersList)
-        this.forceUpdate();
+        }
+        e.target.reset()
     }
 
     render () {
         return (
-        isRestaurantOpenedAndPopulated(this.props).map((response)=>{
+        this.props.openedRestaurants.map((response)=>{
             return <div className="panelRestaurantItem" key={response._id}>
-                <Fab className="restaurantPanelClose" size="small" color="primary" size="small" onClick={this.removePanel.bind(this,response)}>
+                <Fab className="restaurantPanelClose" size="small" color="primary" size="small" onClick={()=>removePanel(this,response)}>
                     <Icon>close_icon</Icon>
                 </Fab>
                 <div className="panelHeader">
@@ -91,7 +71,7 @@ class OrderPanels extends Component {
                             <p>{res.user}</p>
                         </Grid>
                         <Grid item xs={2}>
-                        <Fab type="submit" className="removeFoodOrder" disabled={this.props.user.fullname!==res.user} key={res._id} size="small" color="primary" onClick={this.deleteOrder.bind(this,res._id)}>
+                        <Fab type="submit" className="removeFoodOrder" disabled={this.props.user.fullname!==res.user} key={res._id} size="small" color="primary" onClick={deleteOrder.bind(this,res._id)}>
                         <Icon>remove_icon</Icon>
                         </Fab>
                         </Grid> 

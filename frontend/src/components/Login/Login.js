@@ -3,7 +3,10 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom'
 import { login } from '../Services'
+import { isUserLoggedIn } from '../../Helpers/Functions'
+import GlobalMessage from '../GlobalMessage/GlobalMessage'
 import './Login.css'
+
 class Login extends Component {
     constructor() {
         super()
@@ -16,6 +19,10 @@ class Login extends Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
+    componentDidMount(){
+        isUserLoggedIn(this.props,'usertoken')
+    }
+
     /*Function for changin input values*/
     onChange (e) {
         this.setState({ [e.target.name]: e.target.value })
@@ -25,16 +32,19 @@ class Login extends Component {
     onSubmit (e) {
         e.preventDefault()
         if(this.state.email==='' || this.state.password===''){
-            this.state.error="You need to fill out all the fields."}
-            else{
+            this.state.error="You need to fill out all the fields."
+        }else{
                 const user = {
                     email: this.state.email,
                     password: this.state.password
                 }
                 login(user).then(res => {
-                    if (res) {
+                    this.setState({error:res.error})
+                    if (!res.error) {
                         this.props.history.push('/dashboard')
                     }
+                }).catch(err=>{
+                    console.log(err)
                 })
             }
             this.setState(this.state)
@@ -42,6 +52,7 @@ class Login extends Component {
 
     render () {
         return (
+        <div>
             <div className="login-container">
              <Link to="/"><div className="login-logo"></div></Link>
             <h2 padding-bottom="true">Login</h2>
@@ -70,14 +81,15 @@ class Login extends Component {
                     fullWidth
                 />
                 <Button
+                    className="login-submit-button"
                     type="submit"
                     variant="contained"
                     color="primary"
-                    fullWidth
                 >Login</Button>
             </form>
-            <div className="errorMessage">{this.state.error}</div>
-            </div>    
+            <GlobalMessage error={this.state.error} />
+            </div>
+        </div>  
         )
     }
 }

@@ -3,7 +3,11 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom'
 import { register } from '../Services'
+import { isUserLoggedIn } from '../../Helpers/Functions'
 import './Register.css'
+import GlobalMessage from '../GlobalMessage/GlobalMessage'
+
+
 class Register extends Component {
 
     /*Creating array of data and bind changes on created events*/
@@ -17,6 +21,10 @@ class Register extends Component {
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    componentDidMount(){
+        isUserLoggedIn(this.props,'usertoken')
     }
 
     /*This function is used for changing the values of every input*/
@@ -38,7 +46,11 @@ class Register extends Component {
                     password: this.state.password
                 }
                 register(user).then(res => {
-                    this.props.history.push(`/login`)
+                    if(!res.error){
+                        this.props.history.push(`/login`)
+                    }else{
+                        this.setState({error:res.error})
+                    }  
                 })
             }
             else{
@@ -89,9 +101,14 @@ render () {
                 onChange={this.onChange}
                 fullWidth
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth>Register</Button>
+            <Button 
+                type="submit" 
+                variant="contained" 
+                color="primary" 
+                className="register-submit-button"
+                >Register</Button>
             </form>
-            <div className="errorMessage">{this.state.error}</div>
+            <GlobalMessage error={this.state.error} />
     </div>    
         )
     }

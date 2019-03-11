@@ -4,6 +4,8 @@ import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
 import './RestaurantsList.css'
+
+
 class RestaurantsList extends Component {
 
     constructor() {

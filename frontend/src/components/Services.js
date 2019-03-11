@@ -10,7 +10,9 @@
                 password: newUser.password,
             })
             .then(res => {
-                console.log('Registered!')
+                return res.data
+            }).catch(err=>{
+                return err
             })
     }
 
@@ -26,7 +28,7 @@
                 return res.data
             })
             .catch(err => {
-                console.log(err)
+                return err
             })
     }
 
@@ -75,6 +77,9 @@
             })
     }
 
+    /*
+        Getting orders data from database
+    */
     export function getOrderList (date) {
         return axios.get('orders/'+date)
         .then(function (response) {
@@ -85,6 +90,9 @@
         });
     }
 
+    /*
+        Function for deleting orders from database by specific ID
+    */
     export function removeOrder (orderID) {
         return axios.delete('orders/delete/'+orderID)
         .then(function (response) {

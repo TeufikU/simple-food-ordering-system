@@ -23,4 +23,6 @@
     margin:0 auto;
   }
 
-  
+  .login-submit-button{
+    width:80%;
+  }

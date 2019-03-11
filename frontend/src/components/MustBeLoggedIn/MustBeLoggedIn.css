@@ -1,0 +1,9 @@
+.globalMessage{
+    margin:0 auto;
+    display:block;
+    text-align: center;
+  }
+
+.MustBeLoggedInButton{
+    margin-top: 20px!important;
+  }

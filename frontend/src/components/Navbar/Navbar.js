@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, withRouter} from 'react-router-dom'
 import './Navbar.css'
+
 class Navbar extends Component {
     
     /*Function used for logging out users from Dashboard. It removes user data from local storage*/

@@ -1,5 +1,4 @@
-
-.register-container{
+  .register-container{
     margin: 0;
     position: absolute;
     top: 50%;
@@ -19,4 +18,8 @@
     height:100px;
     background: url('../../assets/imgs/logo.png') no-repeat center center fixed;
     margin:0 auto;
+  }
+
+  .register-submit-button{
+    width:80%;
   }

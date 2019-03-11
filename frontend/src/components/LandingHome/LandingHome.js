@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
+import {isUserLoggedIn} from '../../Helpers/Functions'
 import './LandingHome.css'
+
 const LoginLink = props => <Link to="/login" {...props} />
 const RegisterLink = props => <Link to="/register" {...props} />
 
 class LandingHome extends Component {
+
+    componentDidMount(){
+        isUserLoggedIn(this.props,'usertoken')
+    }
+
     render () {
         return (
         <div className="landinghome-container">

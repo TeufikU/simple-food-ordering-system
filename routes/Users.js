@@ -26,19 +26,19 @@
                     bcrypt.hash(req.body.password, 10, (err, hash) => {
                         userData.password = hash
                         User.create(userData)
-                            .then(user => {
-                                res.json({ status: user.email + ' registered!' })
+                            .then(() => {
+                                res.json({status: 'You have successfully registered!' })
                             })
-                            .catch(err => {
-                                res.send('error: ' + err)
+                            .catch(() => {
+                                res.send({error: 'Ooops, something went wrong'})
                             })
                     })
                 } else {
-                    res.json({ error: 'User already exists' })
+                    res.json({error: 'That user already exists!' })
                 }
             })
-            .catch(err => {
-                res.send('error: ' + err)
+            .catch(() => {
+                res.send({error: 'Ooops, something went wrong'})
             })
     })
 
@@ -60,15 +60,14 @@
                         })
                         res.send(token)
                     } else {
-                        res.json({ error: "User does not exist" })
-                        console.log("Passwords is incorrect")
+                        res.send({ error: "User password don't match" })
                     }
                 } else {
-                    res.json({ error: "User does not exist" })
+                    res.send({ error: "Oooops, that user does not exist." })
                 }
             })
             .catch(err => {
-                res.send('error: ' + err)
+                err.json({error: "Oooops, something went wrong"})
             })
     })
 
@@ -83,11 +82,11 @@
                 if (user) {
                     res.json(user)
                 } else {
-                    res.send("User does not exist")
+                    res.send({error: "User does not exist"})
                 }
             })
             .catch(err => {
-                res.send('error: ' + err)
+                res.send({error: 'Something went wrong'})
             })
     })
 

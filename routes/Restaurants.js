@@ -21,7 +21,15 @@ restaurants.post('/list', (req, res) => {
 
 //Getting data from MongoDB
 restaurants.get('/list', (req, res) => {
-    Restaurant.find().then(list=> res.json(list));
+    Restaurant.find().then(list=> 
+       { 
+           if(list.length>0){
+                res.json(list)
+            }else{
+                res.json({status: 'There is no restaurants added'})  
+            }
+        }
+    )
 })
 
 module.exports = restaurants

@@ -21,22 +21,25 @@
 
 
   
-  html body div#root div.App div.landing-container
+ 
   
   /*
     Style for Dashboard component
   */
    
 
- 
+  div.login-container div#itm{
+   position:absolute;
+   bottom:50%;
+   background:black;
+   color:white;
+   z-index:1000;
+   
+ }
 
   
 
-  .globalMessage{
-    margin:0 auto;
-    display:block;
-    text-align: center;
-  }
+
 
   .errorMessage{
     color:red;
