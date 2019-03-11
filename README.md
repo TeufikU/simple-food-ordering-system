@@ -25,7 +25,7 @@ For this we have been using a MongoDB, express, axios, jwt-decode, and material 
 * Make autocomplete inputs
 * Maybe add the ability of real time tracking data
 
-#Here's some screenshots of working page
+# Here's some screenshots of working page
 
 ![Landing Page](https://raw.githubusercontent.com/TeufikU/simple-food-ordering-system/master/ScreenShots/Screenshot_61.png)
 ![Log in Page](https://raw.githubusercontent.com/TeufikU/simple-food-ordering-system/master/ScreenShots/Screenshot_63.png)
